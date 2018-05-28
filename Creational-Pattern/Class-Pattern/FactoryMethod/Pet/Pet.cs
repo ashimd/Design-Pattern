@@ -6,45 +6,57 @@ using System.Threading.Tasks;
 
 namespace FactoryMethod.Pet
 {
-    // Base class that serves as type to be instantiated for factory method pattern
-    // IPet: Product class
+    /// <summary>
+    /// Base class that serves as type to be instantiated for factory method pattern
+    /// IPet: Product class
+    /// </summary>
     public interface IPet
     {
         string PetSound();
     }
 
-    // Derived class 1 that might get instantiated by a factory method pattern
-    // Dog: ConcreteProduct class
-    public class Dog: IPet
+    /// <summary>
+    /// Derived class 1 that might get instantiated by a factory method pattern
+    /// Dog: ConcreteProduct class
+    /// </summary>
+    /// <seealso cref="FactoryMethod.IPet" />
+    public class Dog : IPet
     {
         public string PetSound()
         {
-            return "Bow Bow...";
+            return "Bow Bow ...";
         }
     }
 
-    // Derived class 2 that might get instantiated by a factory method pattern
-    // Cat: ConcreteProduct class
+    /// <summary>
+    /// Derived class 2 that might get instantiated by a factory method pattern
+    /// Cat: ConcreteProduct class
+    /// </summary>
+    /// <seealso cref="FactoryMethod.IPet" />
     public class Cat : IPet
     {
         public string PetSound()
         {
-            return "Meaw Meaw...";
+            return "Meaw Meaw";
         }
     }
-
-    // Factory method pattern implementation that instantiates objects based on logic
+    
+    /// <summary>
+    /// Factory method pattern implementation that instantiates objects based on logic     
+    /// </summary>
     public class PetFactory
     {
         IPet _pet = null;
-        
+
         public IPet GetPet(string petType)
         {
-            // based on logic factory instantiates an object
-            if (petType.Equals("Bow"))
+            if (petType == "Bow")
                 _pet = new Dog();
-            else if (petType.Equals("Meaw"))
+            else if (petType == "Meaw")
                 _pet = new Cat();
+            else
+                return _pet;
+
             return _pet;
         }
     }
