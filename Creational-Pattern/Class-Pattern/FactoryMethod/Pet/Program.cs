@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FactoryMethod.Pet
 {
@@ -14,7 +10,10 @@ namespace FactoryMethod.Pet
             IPet pet = factory.GetPet("Bow");       // factory instantiates an object
             // you don't know which object factory created
             Console.WriteLine(pet.PetSound());
-            Console.ReadKey();
+            
+            pet = petFactory.GetPet("Meaw");       // factory instantiates another object
+            Console.WriteLine(pet.PetSound());
+            Console.ReadLine();
         }
     }
 }
