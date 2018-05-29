@@ -5,7 +5,7 @@ namespace AbstractFactory.Structural
     class Program
     {
         /// <summary>
-        /// Entry point into console application.
+        /// The Calling Application
         /// </summary>
         static void Main(string[] args)
         {
